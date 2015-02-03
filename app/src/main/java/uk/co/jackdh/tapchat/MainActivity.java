@@ -151,11 +151,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         private boolean isExternalStorageAvailable() {
             String state = Environment.getExternalStorageState();
 
-            if (state.equals(Environment.MEDIA_MOUNTED)) {
-                return true;
-            } else {
-                return false;
-            }
+            return state.equals(Environment.MEDIA_MOUNTED);
         }
 
     };
@@ -168,11 +164,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         setContentView(R.layout.activity_main);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         ParseUser currentUser = ParseUser.getCurrentUser();
+
+//        sinchClient.checkManifest();
+
         if (currentUser == null) {
             navigateToLogin();
         } else {
             Log.i(TAG, currentUser.getUsername());
         }
+
+
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
@@ -207,6 +208,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
     }
 
 
@@ -273,6 +275,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         } else if (resultCode != RESULT_CANCELED) {
             Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_LONG).show();
         }
+
     }
 
     private void navigateToLogin() {

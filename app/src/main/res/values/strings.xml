@@ -47,5 +47,10 @@
     <string name="title_activity_view_image">Image</string>
     <string name="username_label">Username</string>
     <string name="error_username_required">Please enter a username</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="message_elipses">Message...</string>
+    <string name="title_activity_list_users">ListUsersActivity</string>
+    <string name="chat_label">Chat</string>
 
 </resources>
